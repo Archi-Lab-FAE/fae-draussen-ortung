@@ -30,16 +30,19 @@ Hierzu muss der Wert von ``tracker.publishRate`` geändert werden.
 Dieser wird in Millisekunden angeben und ist Standardmäßig auf 5000ms eingestellt.
 
 ## Run
-
-Um den Service zu starten und mit kafka zu verbinden muss zu erst das Projekt mit maven geaubt werden.
+Um den Service zu starten und mit kafka zu verbinden muss zuerst das Projekt mit maven gebaut werden.
 Hierzu benötigt man den folgenden Befehl: 
 ```bash
-mvn package -DskipTests=true
+mvn clean package
 ```
-Maven erzeugt nun eine .Jar File des Projekts und legt diese im /target Ordner ab. 
-Als nächstes kann mit hilfe der docker-compose Datei der Service gestartet werden. 
+Maven erzeugt nun eine .jar File des Projekts und legt diese im /target Ordner ab. 
+Als nächstes wird das Docker Image gebaut:
 ```bash
-docker-compose up 
+docker build -f "./Dockerfile" -t docker.nexus.archi-lab.io/archilab/fae-draussen-ortung .
+```
+Abschließend kann der Service mithilfe eines Scriptes gestartet werden. 
+```bash
+./start-service-dev.sh
 ```
 Zu beachten hierbei ist das zuerst der Messagebroker gestartet werden muss,
 da sonnst ein Fehler in docker erscheint und der Start des Services nicht funktioniert.

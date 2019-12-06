@@ -1,6 +1,10 @@
-FROM openjdk:8-jdk-alpine
-WORKDIR /usr/app
-COPY target/GPSMockService-0.0.1-SNAPSHOT.jar /usr/app/app.jar
-COPY src/main/resources/static/GPSData /usr/app/GPSData
-EXPOSE 8080
-ENTRYPOINT ["java","-Dspring.profiles.active=prod","-jar","app.jar"]
+FROM openjdk:8u212-jdk-alpine3.9
+
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+COPY src/main/resources/static/GPSData /app/GPSData
+
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod","-Xms128m","-Xmx256m","-cp","app:app/lib/*",\
+  "de.thkoeln.archilab.fae.GPSMockService"]
