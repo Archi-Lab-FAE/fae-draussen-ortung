@@ -4,7 +4,6 @@ ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
-COPY src/main/resources/static/GPSData /app/GPSData
 
 ENTRYPOINT ["java", "-Dspring.profiles.active=prod","-Xms128m","-Xmx256m","-cp","app:app/lib/*",\
   "de.thkoeln.archilab.fae.GPSMockService.GpsMockServiceApplication"]
