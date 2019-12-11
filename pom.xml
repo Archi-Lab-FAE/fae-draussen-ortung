@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>de.thkoeln.archilab.fae</groupId>
-	<artifactId>gps-mock-service</artifactId>
+	<artifactId>fae-draussen-ortung</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>gps-mock-service</name>
