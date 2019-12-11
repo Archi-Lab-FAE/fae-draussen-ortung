@@ -25,7 +25,7 @@ Solange der Service nicht beendet wird laufen die Tracker weiter und wiederrhole
 
 
 ## Configuration
-In der Konfigurationsdatei ``application.properties`` kann zusätzlich die Rate der Event erhöht oder verrinter werden.
+In der Konfigurationsdatei ``application.properties`` kann zusätzlich die Rate der Event erhöht oder verringert werden.
 Hierzu muss der Wert von ``tracker.publishRate`` geändert werden. 
 Dieser wird in Millisekunden angeben und ist Standardmäßig auf 5000ms eingestellt.
 
@@ -35,11 +35,7 @@ Hierzu benötigt man den folgenden Befehl:
 ```bash
 mvn clean package
 ```
-Maven erzeugt nun eine .jar File des Projekts und legt diese im /target Ordner ab. 
-Als nächstes wird das Docker Image gebaut:
-```bash
-docker build -f "./Dockerfile" -t docker.nexus.archi-lab.io/archilab/fae-draussen-ortung .
-```
+Maven compiliert nun das Projekt, testet es und baut ein docker Image.
 Abschließend kann der Service mithilfe eines Scriptes gestartet werden. 
 ```bash
 ./start-service-dev.sh
