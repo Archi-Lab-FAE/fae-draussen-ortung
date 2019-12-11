@@ -11,9 +11,10 @@
 	</parent>
 
 	<groupId>de.thkoeln.archilab.fae</groupId>
-	<artifactId>GPSMockService</artifactId>
+	<artifactId>gps-mock-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>GPSMockService</name>
+
+	<name>gps-mock-service</name>
 	<description>Simple Microservice which publishes mock GPS data</description>
 
 	<properties>
