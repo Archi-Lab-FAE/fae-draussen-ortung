@@ -1,0 +1,6 @@
+eventing:
+    brokers: localhost:5000
+    topic: tracker
+tracker:
+    path: src/main/resources/static/GPSData
+    publishRate: 5000
