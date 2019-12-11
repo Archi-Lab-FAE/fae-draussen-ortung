@@ -12,7 +12,7 @@
 
 	<groupId>de.thkoeln.archilab.fae</groupId>
 	<artifactId>fae-draussen-ortung</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${revision}${changelist}</version>
 
 	<name>gps-mock-service</name>
 	<description>Simple Microservice which publishes mock GPS data</description>
